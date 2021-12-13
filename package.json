@@ -27,7 +27,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint . --ext .js"
+    "lint": "eslint . --ext .js",
+    "e2e": "cypress open",
+    "e2e-run": "cypress run"
   },
   "eslintConfig": {
     "extends": [
@@ -49,6 +51,7 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.12.13",
+    "cypress": "^9.1.1",
     "eslint": "^7.19.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^7.2.0",
