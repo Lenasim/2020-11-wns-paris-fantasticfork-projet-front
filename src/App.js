@@ -3,7 +3,6 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core';
 import theme from './Components/theme';
 import { Authenticated, Visitor } from './Layouts';
-import LandingPage from './Components/Pages/LandingPage/LandingPage';
 import Home from './Components/Pages/Home/Home';
 import Dashboard from './Components/Pages/Dashboard/Dashboard';
 import Chat from './Components/Pages/Chat/Chat';
@@ -24,7 +23,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Switch>
-        <RouteWrapper exact path='/' component={LandingPage} layout={Visitor} />
+        <RouteWrapper exact path='/' component={Home} layout={Visitor} />
         <RouteWrapper exact path='/home' component={Home} protectedRoute layout={Authenticated} text='Home' />
         <RouteWrapper exact path='/register' component={RegisterContainer} layout={Visitor} />
         <RouteWrapper exact path='/login' component={LoginContainer} layout={Visitor} />

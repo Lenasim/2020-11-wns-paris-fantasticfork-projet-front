@@ -6,17 +6,17 @@ function SearchTools({ topics, modalOpen }) {
   const [tabsValue, setTabsValue] = useState(0);
   const [toolsOpened, toggleTools] = useState(true);
 
-  function sortByDate() {
+  const sortByDate = () => {
       const _topics = [...topics.get].sort((a, b) => b.createdAt - a.createdAt);
       topics.set(_topics);
   }
 
-  function sortByPopularity() {
+  const sortByPopularity = () => {
       const _topics = [...topics.get].sort((a, b) => b.like - a.like);
       topics.set(_topics);
   }
 
-  function filterTopics(e) {
+  const filterTopics = (e) => {
       const searchedString = e.target.value.toLowerCase();
 
       if (e.target.value === '') topics.set(topics.list);
