@@ -20,6 +20,7 @@
     "airbnb/hooks",
     "prettier",
     "prettier/react",
+    "plugin:cypress/recommended"
   ],  
 "rules": {
   "max-len": ["error", {"code": 120}],
@@ -46,6 +47,12 @@
     "files": "markdown.config.js",
     "rules": {
       "no-console": 0,
+      "cypress/no-assigning-return-values": "error",
+      "cypress/no-unnecessary-waiting": "error",
+      "cypress/assertion-before-screenshot": "warn",
+      "cypress/no-force": "warn",
+      "cypress/no-async-tests": "error",
+      "cypress/no-pause": "error"
     },
   },
 ],

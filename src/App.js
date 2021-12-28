@@ -23,7 +23,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Switch>
-        <RouteWrapper exact path='/' component={Home} layout={Visitor} />
+        <RouteWrapper exact path='/' component={Home} protectedRoute layout={Authenticated} text='Home' />
         <RouteWrapper exact path='/home' component={Home} protectedRoute layout={Authenticated} text='Home' />
         <RouteWrapper exact path='/register' component={RegisterContainer} layout={Visitor} />
         <RouteWrapper exact path='/login' component={LoginContainer} layout={Visitor} />

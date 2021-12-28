@@ -34,7 +34,8 @@ const refreshToken = new TokenRefreshLink({
   fetchAccessToken: () => {
     const token = localStorage.getItem('stud-connect@token') || null;
     return fetch(
-      process.env.REACT_APP_ENV === 'DEV' ? 'http://localhost:4000/refresh_token' : process.env.REACT_APP_TOKEN_URI,
+      // process.env.REACT_APP_ENV === 'DEV' ? 'http://localhost:4000/refresh_token' : process.env.REACT_APP_TOKEN_URI,
+        process.env.REACT_APP_TOKEN_URI,
       {
         method: 'GET',
         credentials: 'include',
@@ -72,15 +73,16 @@ const authMiddleware = new ApolloLink((operation, forward) => {
 });
 
 const httpLink = new HttpLink({
-  uri:
-    process.env.REACT_APP_ENV === 'DEV'
-      ? process.env.REACT_APP_GRAPHQL_URI_DEV_MODE
-      : process.env.REACT_APP_GRAPHQL_URI,
+  uri: process.env.REACT_APP_GRAPHQL_URI,
+    // process.env.REACT_APP_ENV === 'DEV'
+      // ? process.env.REACT_APP_GRAPHQL_URI_DEV_MODE
+      // : process.env.REACT_APP_GRAPHQL_URI,
   credentials: 'include',
 });
 
 const wsLink = new WebSocketLink({
-  uri: process.env.REACT_APP_ENV === 'DEV' ? process.env.REACT_APP_SUB_URI_DEV_MODE : process.env.REACT_APP_SUB_URI,
+  uri: process.env.REACT_APP_SUB_URI,
+  // uri: process.env.REACT_APP_ENV === 'DEV' ? process.env.REACT_APP_SUB_URI_DEV_MODE : process.env.REACT_APP_SUB_URI,
   options: {
     reconnect: true,
     connectionParams: {
