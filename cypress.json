@@ -1,4 +1,4 @@
 {
-	"baseUrl": "https://studconnect.netlify.app/",
+	"baseUrl": "http://localhost:3000",
 	"videoRecording": false
 }
