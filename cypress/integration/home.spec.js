@@ -2,7 +2,11 @@ describe('Main Test', () => {
  
   beforeEach('Connect to home', () => {
       // cy.visit('/');
-      cy.visit('http://localhost:3000/');
+      cy.visit('http://localhost:3000/', { 
+        headers: {
+          "Accept-Encoding": "gzip, deflate"
+        }
+      });
   })
 
   it('Redirect to login page', () => {
