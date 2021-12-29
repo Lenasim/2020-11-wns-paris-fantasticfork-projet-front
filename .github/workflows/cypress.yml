@@ -20,3 +20,9 @@ jobs:
         with:
           build: npm run build
           start: npm start
+        env:
+          REACT_APP_GRAPHQL_URI : ${{ secrets.REACT_APP_GRAPHQL_URI }}
+          REACT_APP_GRAPHQL_URI_DEV_MODE : ${{ secrets.REACT_APP_GRAPHQL_URI_DEV_MODE }}
+          REACT_APP_SUB_URI : ${{ secrets.REACT_APP_SUB_URI }}
+          REACT_APP_SUB_URI_DEV_MODE : ${{ secrets.REACT_APP_SUB_URI_DEV_MODE }}
+          REACT_APP_TOKEN_URI: ${{ secrets.REACT_APP_TOKEN_URI}}
