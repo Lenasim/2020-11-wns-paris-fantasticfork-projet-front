@@ -1,53 +1,47 @@
 describe('Main Test', () => {
-  it('connect', () => {
-    cy.visit('http://localhost:3000/');
+ 
+  beforeEach('Connect to home', () => {
+      // cy.visit('/');
+      cy.visit('http://localhost:3000/');
   })
 
-  it('connect', () => {
-    cy.visit('/');
+  it('Redirect to login page', () => {
+    cy.location().should((location) => {
+      expect(location.pathname).to.eq('/login')
+    })
   })
-  
-  // beforeEach('Connect to home', () => {
-  //     cy.visit('/');
-  // })
 
-  // it('Redirect to login page', () => {
-  //   cy.location().should((location) => {
-  //     expect(location.pathname).to.eq('/login')
-  //   })
-  // })
+  it('Redirect to login page', () => {
+    cy.location().should((location) => {
+      expect(location.pathname).to.eq('/login')
+    })
+  })
 
-  // it('Redirect to login page', () => {
-  //   cy.location().should((location) => {
-  //     expect(location.pathname).to.eq('/login')
-  //   })
-  // })
-
-  // it('sets auth token when logging in via form submission', () => {
-  //   cy.get('#email')
-  //   .should('be.visible')
-  //   .should('have.focus')
-  //   .type("test5@test.com")
+  it('sets auth token when logging in via form submission', () => {
+    cy.get('#email')
+    .should('be.visible')
+    .should('have.focus')
+    .type("test5@test.com")
     
-  //   cy.get('#password')
-  //   .should('be.visible')
-  //   .type("testtest")
+    cy.get('#password')
+    .should('be.visible')
+    .type("testtest")
 
-  //   cy.get('.MuiButton-label')
-  //     .should('be.visible')
-  //     .click()
+    cy.get('.MuiButton-label')
+      .should('be.visible')
+      .click()
 
-  //   cy.location().should((location) => {
-  //     expect(location.pathname).to.eq('/home')
-  //   })
+    cy.location().should((location) => {
+      expect(location.pathname).to.eq('/home')
+    })
 
-  //   cy.should(() => {
-  //     expect(localStorage.getItem('stud-connect@firstname')).to.eq('lena')
-  //     expect(localStorage.getItem('stud-connect@lastname')).to.eq('test')
-  //     expect(localStorage.getItem('stud-connect@role')).to.eq('STUDENT')
-  //     expect(localStorage.getItem('stud-connect@token')).to.be.a('string')
-  //   })
+    cy.should(() => {
+      expect(localStorage.getItem('stud-connect@firstname')).to.eq('lena')
+      expect(localStorage.getItem('stud-connect@lastname')).to.eq('test')
+      expect(localStorage.getItem('stud-connect@role')).to.eq('STUDENT')
+      expect(localStorage.getItem('stud-connect@token')).to.be.a('string')
+    })
 
-  //   cy.get('.flex_column > .MuiTypography-root').should('contain', 'lena test')
-  // })
+    cy.get('.flex_column > .MuiTypography-root').should('contain', 'lena test')
+  })
 })
