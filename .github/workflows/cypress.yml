@@ -20,6 +20,7 @@ jobs:
         with:
           build: npm run build
           start: npm start
+          config: baseUrl=http://localhost:3000, videoRecording:false
         env:
           REACT_APP_GRAPHQL_URI : ${{ secrets.REACT_APP_GRAPHQL_URI }}
           REACT_APP_GRAPHQL_URI_DEV_MODE : ${{ secrets.REACT_APP_GRAPHQL_URI_DEV_MODE }}
