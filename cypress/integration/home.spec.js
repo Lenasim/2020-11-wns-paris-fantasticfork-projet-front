@@ -4,7 +4,8 @@ describe('Main Test', () => {
       // cy.visit('/');
       cy.visit('http://localhost:3000/', { 
         headers: {
-          "Accept-Encoding": "gzip, deflate"
+          "Accept-Encoding": "gzip, deflate",
+          "timeout": 120000
         }
       });
   })
